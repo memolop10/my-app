@@ -9,7 +9,7 @@ const Lista = () => {
 
     const [lista, setLista] = useState(estadoInicial);
     
-    const agrgarElmento = () =>{
+    const agregarElmento = () =>{
         setLista(
             [
                 ...lista,
@@ -26,7 +26,7 @@ const Lista = () => {
                    <h4 key={index}>{item.texto}</h4>
                 ))
            } 
-           <button onClick={ () => agrgarElmento()}>Agrega</button>
+           <button onClick={ () => agregarElmento()}>Agrega</button>
         </div>
     )
 }
