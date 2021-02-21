@@ -4,6 +4,7 @@ const Formulario = () => {
 
     const [fruta,setFruta] = React.useState('');
     const [descripcion, setDescripcion] = React.useState('');
+    const [ lista, setLista ] = React.useState([]);
 
     const validacionForm = (e) =>{
         e.preventDefault();
@@ -20,6 +21,14 @@ const Formulario = () => {
         }
 
         console.log('Validando datos...')
+
+        setLista([
+            ...lista,
+            {
+                fruta: fruta,
+                descripcion: descripcion
+            }
+        ])
 
         e.target.reset();
 
@@ -45,6 +54,16 @@ const Formulario = () => {
                     
                 <button className="btn btn-primary btn-block" type='submit'>Agregar</button>
             </form>
+
+            <ul>
+                {
+                    lista.map((item,index) => (
+                        <li key={index}>
+                            {item.fruta} - {item.descripcion}
+                        </li>
+                    ))
+                }
+            </ul>
         </div>
     )
 }
